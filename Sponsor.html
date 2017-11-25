@@ -1,0 +1,260 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>清华大学信息管理协会-THU MISA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="../myicon.png">
+
+        <!-- Raleway Google fonts  -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,400italic,500,100italic,700' rel='stylesheet' type='text/css'>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="../assets/css/materialize.min.css">
+
+
+
+        <link rel="stylesheet" href="../assets/css/normalize.css">
+        <link rel="stylesheet" href="../assets/css/fonticons.css">
+        <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+        <!-- For navmenu css -->
+        <link rel="stylesheet" href="../assets/css/navmenu.css" />
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="../assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+        <!--Theme Colors css-->
+        <!--<link rel="stylesheet" href="../assets/css/white.css">-->
+
+        <!--Old browser  JS-->
+		<script type="text/javascript" src="../assets/js/jquery.form.js"></script>
+	    <script type="text/javascript" src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+	    <script type="text/javascript" src="../assets/js/jquery.validate.min.js" ></script>
+		<script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../assets/js/Jquery.Query.js"></script>
+		<script type="text/javascript" src="../assets/js/materialize.min.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="../assets/js/materialize.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery.magnific-popup.js"></script>
+        <script type="text/javascript" src="../assets/js/plugins.js"></script>
+        <script type="text/javascript" src="../assets/js/main.js"></script>
+		
+		
+		<script type="text/javascript">
+			$(function(){
+			   getUsername();
+			});
+			
+			function getUsername(){
+			    var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				var rNum2= Math.round(10000*((seed * 9301 + 49297) % 233280)/233280.0);			
+				if(name!=""&&rNum==rNum2){
+				    $("#welcome_div").css("display","block");
+					document.getElementById("userName").innerHTML = "您好，"+name;
+					$("#logout_div").css("display", "block");
+					$("#login_div").css("display", "none");
+				}
+				else{
+					document.getElementById("userName").innerHTML = "";
+					$("#welcome_div").css("display","none");
+					$("#logout_div").css("display", "none");
+					$("#login_div").css("display", "block");
+				}
+			}
+		</script>
+		
+		<script type="text/javascript">
+			$(function() {
+				var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				$("#login_btn").click(function() {
+					var url="../Login?ref=Sponsor";
+					window.location.href = url;
+				});
+				$("#logout_btn").click(function() {
+					var url="../Sponsor";
+					window.location.href = url;
+				});
+				$("#index").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Introduction").click(function() {
+					var url="../Introduction?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#News").click(function() {
+					var url="../News?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Resources").click(function() {
+					var url="../Resources?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Sponsor").click(function() {
+					var url="../Sponsor?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Contact").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed+"#contact";
+					window.location.href = url;
+				});
+			});
+		</script>
+
+    </head>
+	
+    <body data-spy="scroll" data-target="#scrollspy">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div>
+						<ul class="nav navbar-nav">
+						    <li><a class="navbar-brand"><b>MISA</b></a></li>
+							<li><a id="index">首页</a></li>
+							<li><a id="Introduction">关于我们</a></li>
+							<li><a id="News">最新消息</a></li>
+							<li><a id="Resources">课程资源</a></li>
+							<li><a id="Discussion">主题讨论</a></li>
+							<li class="active"><a id="Sponsor">赞助商</a></li>
+							<li><a id="Contact">联系我们</a></li>
+						</ul>
+					</div>
+					<div id="login_div" class="nav navbar-nav navbar-right">
+						<li><a id="login_btn" class="navbar-link">登录</a></li>
+				    </div>
+					<div id="logout_div" class="nav navbar-nav navbar-right">
+						<li><a id="logout_btn" class="navbar-link">退出</a></li>
+				    </div>
+					<div id="welcome_div" class="nav navbar-nav navbar-right">
+						<li><a id="userName" class="navbar-link">欢迎您</a></li>
+				    </div>
+				</div>
+			</nav>
+			
+		<!-- Testiomonial Section -->
+            <section id="testiomonial" class="testimonial">
+                <div class="main_testimonial_area">
+					<div class="overlay"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="head_title m-y-3 p-t-2  wow fadeInUp">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h2>赞助商</h2>
+                                        </div>
+                                        <div class="col-md-6">
+                                        </div>
+									    <div class="col-md-2">
+                                            <h6>简介</h6>
+                                        </div>										
+                                    </div>
+                                </div>
+
+                                <div class="testimonial_content text-center p-y-3 m-b-3">
+                                    <div class="test_slider">
+                                        <div class="single_test">
+                                            <h3 class="">&nbsp &nbsp &nbsp DELLEMC是一家领先的IT存储硬件解决方案提供商，提供各种解决方案来提升数据备份与恢复性能，
+											并加快实现云计算之旅。DELLEMC为信管协会提供企业参访、企业实习等宝贵机会，
+											EMC俱乐部成员也将有机会参加黑客马拉松、人工智能前沿研讨会等。</h3>  
+                                        </div>
+                                        <div class="single_test">
+                                            <h3 class="">&nbsp &nbsp &nbsp &nbsp埃森哲公司是全球最大的管理咨询、信息技术和业务流程外包的跨国企业。其客户包括《财富》世界500强企业、
+											各国政府机构及军队。由埃森哲冠名的、信管协会承办的埃森哲商业案例大赛于每年5月在清华举行，比赛优胜者将获得奖金
+											及埃森哲实习机会。</h3>  
+                                        </div>
+                                        <div class="single_test">
+                                            <h3 class="">期待您的加盟</h3>  
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> <!-- End off col-md-12 -->
+                        </div>
+                    </div>
+                </div>
+            </section> <!-- End of testimonial Section -->
+			
+		    <!-- Portfolio Section -->
+            <section id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                                <div class="head_title m-y-3 p-y-3 wow fadeInUp">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2 align = "left"><b>成为我们的赞助商，我们能够为您提供：<b></h2>
+                                        </div>
+                                    </div>
+                                </div>
+								<div class = "row">
+								<div class = "col-md-1">
+								</div>
+								<div class = "col-md-7">
+									<h6 align = "left">&nbsp &nbsp 1.制作相关企业宣传文案并在校园范围进行推广，扩大企业知名度；</h6><br>
+									<h6 align = "left">&nbsp &nbsp 2.提供企业参访相关活动，让同学们近距离接触贵司企业文化及工作，吸引潜在未来职员；</h6><br>
+									<h6 align = "left">&nbsp &nbsp 3.合作举办案例比赛等活动，调动精英青年们共同的智慧解决企业成长问题；</h6><br>
+									<h6 align = "left">&nbsp &nbsp 4.对企业应聘全职员工、招聘实习生等项目活动进行宣传，帮助企业搜寻最为合适的人选。；</h6><br>
+								</div>
+								<div class="col-md-2">
+								<div class="signle_service_left text-sm-center wow fadeInleft">
+								<img src="../assets/images/sponsor1.jpg" alt="" />
+								<h6>&nbsp </h6><br>
+								<img src="../assets/images/sponsor2.jpg" alt="" />
+								</div>
+								</div>
+								</div>
+                        </div><!-- End of col-md-12 -->
+                    </div><!-- End of row -->
+                </div><!-- End of container -->
+				<br><br><br><br><br><br>
+            </section><!-- End of Tobias Section -->
+			
+			<section id="contact" class="testimonial">
+                <div class="main_testimonial_area1">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-1">
+							</div>
+							<div class="col-md-8">
+								<div class="main_blog_area m-y-3 p-y-3 wow fadeInUp">
+									<div class="col-md-12" >
+										<h4 align = "left">想加入成为我们的赞助商或获取更多信息？请关注以下联系方式：</h4></br>
+										<h4 align = "left">协会赞助商专用邮箱：misa_sponsor@sem.tsinghua.edu.cn</h4></br>
+										<h4 align = "left">申请成为赞助商表格下载：《清华大学信息管理协会赞助商申请表》</h4></br>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- End of container  -->
+				</div>
+            </section><!-- End of blog Section -->
+
+
+        <!-- Compiled and minified JavaScript -->
+
+
+    </body>
+</html>

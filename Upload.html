@@ -1,0 +1,226 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>清华大学信息管理协会-THU MISA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="../myicon.png">
+
+        <!-- Raleway Google fonts  -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,400italic,500,100italic,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="../assets/css/materialize.min.css">
+        <link rel="stylesheet" href="../assets/css/normalize.css">
+        <link rel="stylesheet" href="../assets/css/fonticons.css">
+        <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+        <!-- For navmenu css -->
+        <link rel="stylesheet" href="../assets/css/navmenu.css" />
+
+        <!--For Plugins external css-
+        <link rel="stylesheet" href="../assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+        <!--Theme Colors css-->
+        <!--<link rel="stylesheet" href="../../assets/css/white.css">-->
+
+        <!--Old browser  JS-->
+        <script type="text/javascript" src="../assets/js/jquery.form.js"></script>
+	    <script type="text/javascript" src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+	    <script type="text/javascript" src="../assets/js/jquery.validate.min.js" ></script>
+		<script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../assets/js/Jquery.Query.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			   getUsername();
+			});
+			
+			function getUsername(){
+			    var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				var rNum2= Math.round(10000*((seed * 9301 + 49297) % 233280)/233280.0);			
+				if(name!=""&&rNum==rNum2){
+				    $("#welcome_div").css("display","block");
+					document.getElementById("userName").innerHTML = "您好，"+name;
+					$("#logout_div").css("display", "block");
+					$("#login_div").css("display", "none");
+				}
+				else{
+					document.getElementById("userName").innerHTML = "";
+					$("#welcome_div").css("display","none");
+					$("#logout_div").css("display", "none");
+					$("#login_div").css("display", "block");
+				}
+			}
+		</script>
+		
+		<script type="text/javascript">
+			$(function() {
+				var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				$("#login_btn").click(function() {
+					var url="../Login?ref=Upload";
+					window.location.href = url;
+				});
+				$("#logout_btn").click(function() {
+					var url="../Upload";
+					window.location.href = url;
+				});
+				$("#index").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Introduction").click(function() {
+					var url="../Introduction?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#News").click(function() {
+					var url="../News?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Resources").click(function() {
+					var url="../Resources?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Sponsor").click(function() {
+					var url="../Sponsor?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Contact").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed+"#contact";
+					window.location.href = url;
+				});
+			});
+		</script>
+		<script>
+		$(document).ready(function(){
+		  $("#upload_btn").click(function(){
+			var formData = new FormData();
+			var myselect=document.getElementById("cID1");
+			var index=myselect.selectedIndex;
+			
+			formData.append("cID", myselect.options[index].value);
+			formData.append("cName", $('#name').val());
+			formData.append("file", $('#inputfile')[0].files[0]);
+			var request = new XMLHttpRequest();
+			request.onreadystatechange=state_Change;
+			request.open("POST", "http://123.56.26.95/upload");
+			request.send(formData);
+			function state_Change()
+			{
+			if (xmlhttp.readyState==4)
+			  {// 4 = "loaded"
+			  if (xmlhttp.status==200)
+				{// 200 = "OK"
+					alert("上传成功");}
+			  else
+				{ alert("上传失败，请重新上传"); }
+			  }
+			}
+		  });
+		});
+		</script>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#scrollspy">
+
+
+        <div class="main_figur">
+
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div>
+						<ul class="nav navbar-nav">
+						    <li><a class="navbar-brand"><b>MISA</b></a></li>
+							<li><a id="index">首页</a></li>
+							<li><a id="Introduction">关于我们</a></li>
+							<li><a id="News">最新消息</a></li>
+							<li class="active"><a id="Resources">课程资源</a></li>
+							<li><a id="Discussion">主题讨论</a></li>
+							<li><a id="Sponsor">赞助商</a></li>
+							<li><a id="Contact">联系我们</a></li>
+						</ul>
+					</div>
+					<div id="login_div" class="nav navbar-nav navbar-right">
+						<li><a id="login_btn" class="navbar-link">登录</a></li>
+				    </div>
+					<div id="logout_div" class="nav navbar-nav navbar-right">
+						<li><a id="logout_btn" class="navbar-link">退出</a></li>
+				    </div>
+					<div id="welcome_div" class="nav navbar-nav navbar-right">
+						<li><a id="userName" class="navbar-link">欢迎您</a></li>
+				    </div>
+				</div>
+			</nav>
+
+            <!-- About Section -->
+			<div class="row m-t-3">
+			    <div class="col-md-1"></div>
+			    <div class="col-md-11">
+                    <h2>资料上传</h2>
+                </div>
+			</div>
+			<div class="row">
+			    <div class="col-md-1"></div>
+				<div class="col-md-8">
+					<div class="container m-t-3 m-b-2">
+						<form role="form">
+							<div class="form-group">
+								<label for="cID">课程名称</label>
+								<select class="form-control" id = "cID1">
+								    <option value="" selected="selected">请选择...</option>
+									<option value="101">计算机语言</option>
+									<option value="102">计算机网络</option>
+									<option value="103">运筹学</option>
+									<option value="104">数据结构</option>
+									<option value="105">动态系统分析与设计</option>
+									<option value="106">智能技术</option>
+									<option value="107">其他</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="cName">资料标题</label>
+								<input type="text" class="form-control" id="name"
+									   placeholder="请输入资料标题" style="width:75%;">
+							</div>
+							<div class="form-group">
+								<label for="inputfile">文件</label>
+								<input type="file" id="inputfile">
+							</div>
+							<button id="upload_btn" type="submit" class="btn btn-default">上传</button>
+						</form>
+					</div><!-- End of Container-fluid -->
+				</div>
+	        </div>
+		
+		<footer>
+		    <div class="container">
+				<div class="row">
+					<div class="footer">
+						<h6>Copyright &copy;2017 清华大学信息管理协会</h6>
+					</div>
+				</div>
+			</div>
+		</footer><!--页脚结束-->
+	</body>
+</html>           
