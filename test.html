@@ -11,43 +11,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-        <link rel="icon" type="image/png" href="../assets/myicon.png">
+        <link rel="icon" type="image/png" href="assets/myicon.png">
 
         <!-- Raleway Google fonts  -->
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,400italic,500,100italic,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="../assets/css/materialize.min.css">
-        <link rel="stylesheet" href="../assets/css/normalize.css">
-        <link rel="stylesheet" href="../assets/css/fonticons.css">
-        <link rel="stylesheet" href="../assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/materialize.min.css">
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/fonticons.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
 
         <!-- For navmenu css -->
-        <link rel="stylesheet" href="../assets/css/navmenu.css" />
+        <link rel="stylesheet" href="assets/css/navmenu.css" />
 
         <!--For Plugins external css-->
-        <link rel="stylesheet" href="../assets/css/plugins.css" />
+        <link rel="stylesheet" href="assets/css/plugins.css" />
 
         <!--Theme custom css -->
-        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 
         <!--Theme Responsive css-->
-        <link rel="stylesheet" href="../assets/css/responsive.css" />
+        <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <!--Theme Colors css-->
-        <!--<link rel="stylesheet" href="../assets/css/white.css">-->
+        <!--<link rel="stylesheet" href="assets/css/white.css">-->
 
         <!--Old browser  JS-->
-        <script src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-		<script type="text/javascript" src="../assets/js/jquery.form.js"></script>
-	    <script type="text/javascript" src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-		<script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
-	    <script type="text/javascript" src="../assets/js/jquery.validate.min.js" ></script>
-		<script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
-		<script type="text/javascript" src="../assets/js/Jquery.Query.js"></script>
+        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.form.js"></script>
+	    <script type="text/javascript" src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+	    <script type="text/javascript" src="assets/js/jquery.validate.min.js" ></script>
+		<script type="text/javascript" src="assets/js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="assets/js/Jquery.Query.js"></script>
 		<script type="text/javascript">
 			$(function(){
 			   getUsername();
@@ -124,7 +124,7 @@
 						$("table tr:not(:first)").empty();
 						$.ajax({
 							type: "POST",
-							url:"http://123.56.26.95/Introduction/search/",
+							url:"http://123.56.26.95/farest/",
 							data: JSONObject,
 							dataType: "json",
 							jsonp: "callback",
@@ -137,7 +137,7 @@
 							error: function(){
 								alert("fail");
 								for(var i = 0, l = 5; i < 5; i++){
-									var item = '<tr><td><a href='+"1"+'>'+"2"+'</a></td><td>'+'</td><td>'+"3"+'</td><td>'+"4"+'</td><td>'+"5"+'</td></tr>';//根据后台传递过来的数据生成html内容。
+									var item = '<tr><td><a href='+json[i].file+'>'+json[i].cName+'</a></td><td>'+'</td><td>'+json[i].uploader+'</td><td>'+json[i].uploadTime+'</td><td>'+json[i].clickTime+'</td></tr>';//根据后台传递过来的数据生成html内容。
 									$("table").append(item);//内容添加到页面上。
 								}
 							}
@@ -164,14 +164,15 @@
 					$("#search1").click(function(){
 						$.ajax({
 							type: "GET",
-							url:"http://123.56.26.95/Introduction/",
+							url:"http://123.56.26.95/farest/",
 							dataType: "json",
 							jsonp: "callback",
 							success: function(json){
 								alert(json);
 							},
-							error: function(){
-								alert("fail");
+							error: function(json){
+								alert(json);
+								alert("fail-get");
 							}
 						});
 					});
@@ -267,7 +268,7 @@
 						</div>
 					</div>
 					<div class="col-md-2">
-						<button class="btn btn-default" id = "search">搜索资料</button>
+						<button class="btn btn-default" id = "search1">搜索资料</button>
 					</div>
 					<div class="col-md-2">
 						<button class="btn btn-default" id = "upload">上传资料</button>
