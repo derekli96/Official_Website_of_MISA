@@ -130,6 +130,9 @@
 			request.open("POST", "http://123.56.26.95/up/");
 			request.send(formData);
 			alert("发送中，点击“确认”以继续……");
+			alert("上传成功");
+		    var url="../Upload?name="+name+"&r="+rNum+"&s="+seed;
+		    window.location.href = url;
 			function state_Change()
 			{
 			if (xmlhttp.readyState==4)
