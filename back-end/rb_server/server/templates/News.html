@@ -1,0 +1,221 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>清华大学信息管理协会-THU MISA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="../assets/myicon.png">
+
+        <!-- Raleway Google fonts  -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,400italic,500,100italic,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="../assets/css/materialize.min.css">
+        <link rel="stylesheet" href="../assets/css/normalize.css">
+        <link rel="stylesheet" href="../assets/css/fonticons.css">
+        <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+        <!-- For navmenu css -->
+        <link rel="stylesheet" href="../assets/css/navmenu.css" />
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="../assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+        <!--Theme Colors css-->
+        <!--<link rel="stylesheet" href="../assets/css/white.css">-->
+
+        <!--Old browser  JS-->
+        <script src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../assets/js/jquery.form.js"></script>
+	    <script type="text/javascript" src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+	    <script type="text/javascript" src="../assets/js/jquery.validate.min.js" ></script>
+		<script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../assets/js/Jquery.Query.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			   getUsername();
+			});
+			
+			function getUsername(){
+			    var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				var rNum2= Math.round(10000*((seed * 9301 + 49297) % 233280)/233280.0);			
+				if(name!=""&&rNum==rNum2){
+				    $("#welcome_div").css("display","block");
+					document.getElementById("userName").innerHTML = "您好，"+name;
+					$("#logout_div").css("display", "block");
+					$("#login_div").css("display", "none");
+				}
+				else{
+					document.getElementById("userName").innerHTML = "";
+					$("#welcome_div").css("display","none");
+					$("#logout_div").css("display", "none");
+					$("#login_div").css("display", "block");
+				}
+			}
+		</script>
+		
+		<script type="text/javascript">
+			$(function() {
+				var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				$("#login_btn").click(function() {
+					var url="../Login?ref=News";
+					window.location.href = url;
+				});
+				$("#logout_btn").click(function() {
+					var url="../News";
+					window.location.href = url;
+				});
+				$("#index").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Introduction").click(function() {
+					var url="../Introduction?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#News").click(function() {
+					var url="../News?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Resources").click(function() {
+					var url="../Resources?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Sponsor").click(function() {
+					var url="../Sponsor?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Contact").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed+"#contact";
+					window.location.href = url;
+				});
+			});
+		</script>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#scrollspy">
+
+        <div class="main_figur">
+
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div>
+						<ul class="nav navbar-nav">
+						    <li><a class="navbar-brand"><b>MISA</b></a></li>
+							<li><a id="index">首页</a></li>
+							<li><a id="Introduction">关于我们</a></li>
+							<li class="active"><a id="News">最新消息</a></li>
+							<li><a id="Resources">课程资源</a></li>
+							<li><a id="Discussion">主题讨论</a></li>
+							<li><a id="Sponsor">赞助商</a></li>
+							<li><a id="Contact">联系我们</a></li>
+						</ul>
+					</div>
+					<div id="login_div" class="nav navbar-nav navbar-right">
+						<li><a id="login_btn" class="navbar-link">登录</a></li>
+				    </div>
+					<div id="logout_div" class="nav navbar-nav navbar-right">
+						<li><a id="logout_btn" class="navbar-link">退出</a></li>
+				    </div>
+					<div id="welcome_div" class="nav navbar-nav navbar-right">
+						<li><a id="userName" class="navbar-link">欢迎您</a></li>
+				    </div>
+				</div>
+			</nav>
+
+            <!-- About Section -->
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="main_about_area p-t-3">
+                                <div class="head_title m-y-3  wow fadeInUp">
+                                    <div class="row">
+									    <div class="col-md-3">  
+											<div class="single_blog_menu m-b-2">
+												<h2>时间</h2>
+												<ul>
+													<li><a href="#2017">2017年</a></li>
+													<li><a href="#2016">2016年</a></li>
+													<li><a href="#2015">2015年</a></li>
+												</ul>
+											</div>
+									    </div>
+                                        <div class="col-md-2">
+                                            <h2 id=2017>2017年</h2>
+                                        </div>
+                                        <div class="col-md-7">
+										    <h6 class="m-t-2"></h6>
+											<p></br></p>
+                                            <h6 class="m-t-2">10月10日</h6>
+											<p>第五届信协茶话会报名</p>
+											<h6 class="m-t-2">9月30日</h6>
+											<p>清华大学信管协会2017秋季招新</p>
+											<h6 class="m-t-2">9月1日</h6>
+											<p>人工智能读书会</p>
+											<h6 class="m-t-2">8月24日</h6>
+											<p>学术福利:选课辅导&网络培训</p>
+											<h6 class="m-t-2">5月22日</h6>
+											<p>“埃森哲杯”第七届清华大学IT商业案例大赛圆满结束</p>
+                                        </div>										
+                                    </div>
+                                    <div class="row">
+									    <div class="col-md-3"></div>
+                                        <div  class="col-md-2">
+                                            <h2 id=2016>2016年</h2>
+                                        </div>
+                                        <div class="col-md-7">
+										    <h6 class="m-t-2"></h6>
+											<p></br></p>
+                                            <h6 class="m-t-2">9月6日</h6>
+											<p>清华大学信管协会2016秋季招新</p>
+											<h6 class="m-t-2">8月28日</h6>
+											<p>学术福利:清华网络一站通</p>
+											<h6 class="m-t-2">5月14日</h6>
+											<p>“埃森哲杯”第六届清华大学IT商业案例大赛圆满结束</p>
+                                        </div>										
+                                    </div>
+									<div  class="row">
+									    <div class="col-md-3"></div>
+                                        <div  class="col-md-2">
+                                            <h2 id=2015>2015年</h2>
+                                        </div>
+                                        <div class="col-md-7">
+										    <h6 class="m-t-2"></h6>
+											<p></br></p>
+											<h6 class="m-t-2">5月17日</h6>
+											<p>“通用电气杯”第五届清华大学IT商业案例大赛圆满结束</p>
+                                        </div>										
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End of col-md-12 -->
+                    </div><!-- End of row -->
+                </div><!-- End of Container-fluid -->
+            </section><!-- End of Home Section -->
+			
+			
+	</body>
+</html>           

@@ -1,0 +1,535 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>清华大学信息管理协会-THU MISA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="../assets/myicon.png">
+
+        <!-- Raleway Google fonts  -->
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,400italic,500,100italic,700' rel='stylesheet' type='text/css'>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="../assets/css/materialize.min.css">
+        <link rel="stylesheet" href="../assets/css/normalize.css">
+        <link rel="stylesheet" href="../assets/css/fonticons.css">
+        <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+
+        <!-- For navmenu css -->
+        <link rel="stylesheet" href="../assets/css/navmenu.css" />
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="../assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="../assets/css/responsive.css" />
+
+        <!--Theme Colors css-->
+        <!--<link rel="stylesheet" href="../assets/css/white.css">-->
+
+        <!--Old browser  JS-->
+        <script src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../assets/js/jquery.form.js"></script>
+	    <script type="text/javascript" src="../assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script type="text/javascript" src="../assets/js/vendor/jquery-1.11.2.min.js"></script>
+	    <script type="text/javascript" src="../assets/js/jquery.validate.min.js" ></script>
+		<script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../assets/js/Jquery.Query.js"></script>
+
+        <!-- Compiled and minified JavaScript -->
+		<script type="text/javascript">
+			$(function(){
+			   getUsername();
+			});
+			
+			function getUsername(){
+			    var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				var rNum2= Math.round(10000*((seed * 9301 + 49297) % 233280)/233280.0);			
+				if(name!=""&&rNum==rNum2){
+				    $("#welcome_div").css("display","block");
+					document.getElementById("userName").innerHTML = "您好，"+name;
+					$("#logout_div").css("display", "block");
+					$("#login_div").css("display", "none");
+				}
+				else{
+					document.getElementById("userName").innerHTML = "";
+					$("#welcome_div").css("display","none");
+					$("#logout_div").css("display", "none");
+					$("#login_div").css("display", "block");
+				}
+			}
+		</script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$("#send_btn").click(function() {
+				//点击按钮时进行的判断
+					if ($("#name").val()== "") {
+						alert("请填写您的姓名");
+					} 
+					else if($("#phone").val()== ""){
+						alert("请填写您的联系电话");
+					}
+					else if($("#email").val()== ""){
+						alert("请填写您的邮箱");
+					}
+					else if($("#message").val()== ""){
+						alert("请填写您的留言");
+					}
+					else {
+					    var info=$("#contact_form").serialize();
+						$.ajax({
+							type: "POST",
+							url: "http://123.56.26.95/",
+							data: info,
+							dataType: "json",
+							success: function (data) {
+							    alert("成功发送留言！");							
+							},
+							error: function () {
+								alert("向服务器请求失败，无法发送留言！");
+							}
+						});
+					}
+				});
+			});
+		</script>
+		
+		<script type="text/javascript">
+			$(function() {
+			    var name = $.query.get("name");
+				var rNum = $.query.get("r");
+				var seed = $.query.get("s");
+				$("#login_btn").click(function() {
+					var url="../Login?ref=Introduction";
+					window.location.href = url;
+				});
+				$("#logout_btn").click(function() {
+					var url="../Introduction";
+					window.location.href = url;
+				});
+				$("#index").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Introduction").click(function() {
+					var url="../Introduction?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#News").click(function() {
+					var url="../News?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Resources").click(function() {
+					var url="../Resources?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Sponsor").click(function() {
+					var url="../Sponsor?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;
+				});
+				$("#Contact").click(function() {
+					var url="../?name="+name+"&r="+rNum+"&s="+seed+"#contact";
+					window.location.href = url;
+				});
+			});
+		</script>
+    </head>
+	
+    <body data-spy="scroll" data-target="#scrollspy">
+		   
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div>
+						<ul class="nav navbar-nav">
+						    <li><a class="navbar-brand"><b>MISA</b></a></li>
+							<li><a id="index">首页</a></li>
+							<li class="active"><a id="Introduction">关于我们</a></li>
+							<li><a id="News">最新消息</a></li>
+							<li><a id="Resources">课程资源</a></li>
+							<li><a id="Discussion">主题讨论</a></li>
+							<li><a id="Sponsor">赞助商</a></li>
+							<li><a id="Contact">联系我们</a></li>
+						</ul>
+					</div>
+					<div id="login_div" class="nav navbar-nav navbar-right">
+						<li><a id="login_btn" class="navbar-link">登录</a></li>
+				    </div>
+					<div id="logout_div" class="nav navbar-nav navbar-right">
+						<li><a id="logout_btn" class="navbar-link">退出</a></li>
+				    </div>
+					<div id="welcome_div" class="nav navbar-nav navbar-right">
+						<li><a id="userName" class="navbar-link">欢迎您</a></li>
+				    </div>
+				</div>
+			</nav>
+			
+            <!-- About Section -->
+            <section id="about" class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="main_about_area p-t-3">
+                                <div class="head_title m-y-3  wow fadeInUp">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h2>信息管理协会</h2>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4 class="m-b-2">激励&nbsp &nbsp 创新 &nbsp &nbsp 分享 &nbsp &nbsp 前行</h4>
+                                            <p>
+                                                信管协会由会长团和四大核心部门构成，第十九届会长团由6名成员组成，4位副会长分别负责四个部门的活动运营。
+												协会下设四个部门：运营部、赛事部、行业部、研究部。每个部门由1-2名部长主管，分工独立完成日常活动工作，并在大型
+												活动期间相互合作支持。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="about_content center p-b-3 wow fadeInUp" data-wow-duration="700ms">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="single_abt single_about m-y-3">
+                                                <i class="fa fa-gamepad"></i>
+                                                <h3>赛事部</h3>
+                                                <p>打造信协品牌赛事</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="single_abt single_about m-y-3">
+                                                <i class="fa fa-group"></i>
+                                                <h3>行业部</h3>
+                                                <p>搭建业界沟通桥梁</p>
+                                            </div>
+                                        </div>
+										<div class="col-md-3">
+                                            <div class="single_abt single_about m-y-3">
+                                                <i class="fa fa-edit"></i>
+                                                <h3>研究部</h3>
+                                                <p>洞察学科前沿热点</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="single_abt single_about m-y-3">
+                                                <i class="fa fa-laptop"></i>
+                                                <h3>运营部</h3>
+                                                <p>统筹协会日常运作</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                        </div><!-- End of col-md-12 -->
+                    </div><!-- End of row -->
+                </div><!-- End of Container-fluid -->
+            </section><!-- End of Home Section -->
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main_portfolio_area">
+                                <div class="head_title m-y-3 p-y-3 wow fadeInUp">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h2>赛事部</h2>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h6 align = "left">赛事部主要负责打造信管协会品牌赛事，为同学们搭建展示自我的理想舞台。在筹备赛事的过程中，赛事部负责与赞助商洽谈、与参赛队伍联络等外联工作，并将贯穿始终，从策划到总结，从内部组织到外部协调，都将由赛事部全权负责。 </h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="main_portfolio_content">
+									<div class = "row">
+										<div class = "col-md-1">
+										</div>
+										<div class = "col-md-7">
+										<h4 align = "left"><b>1.  信协强势品牌项目——IT案例大赛</b></h4>
+										<h6 align = "left">以经管学院为依托，范围涉及全校本科生、硕士及MBA，活动旨在为同学们提供一个沟通与交流的平台，予其接触实务案例的机会，锻炼团队协作能力，提高专业素养和技能。</h6>
+										<h4 align = "left"><b>2.  Workshop</b></h4>
+										<h6 align = "left">新一届赛事部加入的日常性活动，内容也由原来的普适性转化为对各年级同学更有针对性的培训。在过去两年中协会已成功举办以案例分析、excel应用等为主题的workshop。</h6>
+										</div>
+										<div class="col-md-3">
+										<div class = "row">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-10">
+											<h6> </h6><br>
+											<div class="signle_service_left text-sm-center wow fadeInleft">
+											<img src="../assets/images/saishibu.jpg" alt="" />
+											</div>
+											</div>
+										</div>
+										</div>
+									</div>
+                                </div>
+								<hr/>
+                            </div><!-- End of main Portfolio area -->
+                        </div><!-- End of col-md-12 -->
+                    </div><!-- End of row -->
+                </div><!-- End of container -->
+            </section><!-- End of Tobias Section -->
+			
+			            <!-- Portfolio Section -->
+            <section id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main_portfolio_area">
+                                <div class="head_title m-y-3 p-y-3 wow fadeInUp">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h2>行业部</h2>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h6 align = "left">行业部作为协会与业界沟通的桥梁，带领大家了解行业近况，组织参观行业领军企业，探索行业前沿，与业界领袖交流，并通过创新与技术课堂帮助同学们获取行业Insight，进而为同学们带来许多业界资源与机遇，帮助同学们将知识融入工作，让梦想绽放精彩。</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="main_portfolio_content">
+									<div class = "row">
+										<div class = "col-md-1">
+										</div>
+										<div class = "col-md-7">
+										<h4 align = "left"><b>1.  主题微沙龙</b></h4>
+										<h6 align = "left">充分利用校友资源，为渴望获得职业导向经验分享与建议的同学们提供更多帮助，协会新增校友茶话会，邀请更多校友与同学们分享自己丰富的经验。</h6>
+										<h4 align = "left"><b>2.  企业Open Day</b></h4>
+										<h6 align = "left">深入探寻行业前沿，实地了解企业动态。协会之前承办过的参观微软、EMC2等公司的活动都取得了很好的反响，行业部也将在此基础上进一步挖掘校友、企业资源，让更多同学更深入的到感兴趣公司参观。</h6>
+										<h4 align = "left"><b>3.  行业报告</b></h4>
+										<h6 align = "left">跟随学长学姐的脚步，获取第一手行业信息，用精美的报告来为信管职业发展提供指明灯。</h6>
+										</div>
+										<div class="col-md-3">
+										<div class = "row">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-10">
+											<h6> </h6><br>
+											<div class="signle_service_left text-sm-center wow fadeInleft">
+											<img src="../assets/images/hangyebu.jpg" alt="" />
+											</div>
+											</div>
+										</div>
+										</div>
+									</div>
+                                </div>
+								<hr/>
+                            </div><!-- End of main Portfolio area -->
+                        </div><!-- End of col-md-12 -->
+                    </div><!-- End of row -->
+                </div><!-- End of container -->
+            </section><!-- End of Tobias Section -->
+			
+			            <!-- Portfolio Section -->
+            <section id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main_portfolio_area">
+                                <div class="head_title m-y-3 p-y-3 wow fadeInUp">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h2>研究部</h2>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h6 align = "left">研究部将引领同学们在学术的道路上勇往直前，带领同学们紧跟IT资讯，把握学术前沿，在紧随潮流的讨论中发出自己的声音。同时，研究部负责联系信管师长分享经验，让同学们有机会初窥学术研究，搭建师生沟通桥梁。研究部将带领同学们向学术研究领域迈出坚实的第一步。 </h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="main_portfolio_content">
+									<div class = "row">
+										<div class = "col-md-1">
+										</div>
+										<div class = "col-md-7">
+										<h4 align = "left"><b>1.  信管专刊</b></h4>
+										<h6 align = "left">这份期刊是凝集了研究部心血，展示工作成果的一个高端大气的平台，也是信管协会对外宣传的一个重要口径。期刊内容现已涵盖了教师访谈，行业资讯动态，网文选摘，重要信息（如管科方向的助研信息等）整理汇总发布等。</h6>
+										<h4 align = "left"><b>2.  师生茶话会</b></h4>
+										<h6 align = "left">这是一个借助研究部资源搭建的小型的，轻松的师生交流对话平台。每次茶话会都会有一定的话题，研究部也会邀请到关注这个话题的老师，只要对话题有疑惑、有思考、有想法的同学都能在这个平台上交换思想，有所收获。</h6>
+										<h4 align = "left"><b>3.  资料收集</b></h4>
+										<h6 align = "left">加强和班委的沟通，进行课程资料和课本的回收，同时搭建学术交流平台，针对当前热门话题进行探讨，提供学习学术双重支持。</h6>
+										</div>
+										<div class="col-md-3">
+										<div class = "row">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-10">
+											<h6> </h6><br>
+											<div class="signle_service_left text-sm-center wow fadeInleft">
+											<img src="../assets/images/xueshubu.jpg" alt="" />
+											</div>
+											</div>
+										</div>
+										</div>
+									</div>
+									<hr/>
+                                </div>
+                            </div><!-- End of main Portfolio area -->
+                        </div><!-- End of col-md-12 -->
+                    </div><!-- End of row -->
+                </div><!-- End of container -->
+            </section><!-- End of Tobias Section -->
+			
+			            <!-- Portfolio Section -->
+            <section id="portfolio" class="portfolio">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main_portfolio_area">
+                                <div class="head_title m-y-3 p-y-3 wow fadeInUp">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h2>运营部</h2>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h6 align = "left">运营部作为协会运作的核心部门，掌管协会财务及资源：对外负责协会品牌塑造，运营协会公众号及邮箱；对内负责协会团队建设，组织迎新、男女生节等聚会活动。因此，运营部是协会的核心力量，把握着协会整体的正常运作及稳步发展。 </h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="main_portfolio_content">
+									<div class = "row">
+										<div class = "col-md-1">
+										</div>
+										<div class = "col-md-7">
+										<h4 align = "left"><b>1.  内联活动</b></h4>
+										<h6 align = "left">男生节、女生节活动，协会集体生日送温暖……运营部的小伙伴们将为信管协会创造家一样的氛围。</h6>
+										<h4 align = "left"><b>2.  系内联盟</b></h4>
+										<h6 align = "left">和信管优秀学长学姐实现第一时间信息、资源共享，组织师生交流会、交换交流会、毕业走向交流会等活动，为每位同学的个人发展提供有效帮助；编写《新生手册》，关爱每一位信管新生。</h6>
+										<h4 align = "left"><b>3.  协会日常事务（财务、例会等）</b></h4>
+										<h6 align = "left">支持各部门项目执行，整合、维护各部门各种对内师长、对外嘉宾资源，宏观掌握、知悉协会整体运作架构。</h6>
+										<h4 align = "left"><b>4.  对外宣传（邮箱、公众号、大群管理）</b></h4>
+										<h6 align = "left">向全院同学发送邮件、制作高大上的推送、定期在信管大群展开活动，提高管理运营能力。</h6>
+										</div>
+										<div class="col-md-3">
+										<div class = "row">
+											<div class="col-md-2">
+											</div>
+											<div class="col-md-10">
+											<h6> </h6><br>
+											<div class="signle_service_left text-sm-center wow fadeInleft">
+											<img src="../assets/images/yunyingbu.jpg" alt="" />
+											</div>
+											</div>
+										</div>
+										</div>
+									</div>
+                                </div>
+								<hr/>
+                            </div><!-- End of main Portfolio area -->
+                        </div><!-- End of col-md-12 -->
+                    </div><!-- End of row -->
+                </div><!-- End of container -->
+            </section><!-- End of Tobias Section -->
+
+
+
+            <!-- Contact Section -->
+            <section id="contactus" class="contactus colorsbg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="main_service_area main_contactus_area">
+
+                            <div class="row">
+                                <div class="col-md-6 no-padding">
+                                    <div class="contact_us_right wow fadeInLeft">
+                                        <div class="single_contactus">
+                                            <div class="ourmap" style="background:#ccc; height:650px;"></div>
+                                        </div>
+                                    </div>
+                                </div><!-- End of col-md-6 --><!-- End of col-md-6 -->
+
+
+                                <div class="col-md-6 no-padding wow rollIn">
+                                    <div class="main_contact_area p-t-2 p-x-3" style="height:650px;">
+                                        <div class="head_title">
+                                            <h2>联系我们</h2>
+                                        </div>
+                                        <div class="single_contant_right">
+                                            <form id="contact_form" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="name" name="name" placeholder="您的姓名" required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="联系电话" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="email" class="form-control" id="email" name="email" placeholder="邮箱地址" required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" name="message" id="message" rows="8" placeholder="您的留言" style="width:100%;"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="m-b-2 m-t-2">
+                                                        <input type="button" id="send_btn" value="发送">
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                        <!-- Copyright -->
+                                        <div class="row">
+                                            <div class="main_footer">
+                                                <div class="col-md-10">
+                                                    <div class="copyright_text margin-top-20 center">
+                                                        <p>
+														MISA&nbsp &nbsp 激励 Motivate&nbsp &nbsp 创新 Innovate &nbsp &nbsp 分享 Share &nbsp &nbsp 前行 Advance
+														</p>
+														<p>Copyright &copy;2017 清华大学信息管理协会</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1 no-padding">
+												    <div></br></div>
+                                                    <div class="scrollup center">
+                                                        <a href="#"><i class="fa fa-chevron-up"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End of row -->
+                                    </div><!-- End of main contact area -->
+
+                                </div><!-- End of col-md-6 -->
+                            </div>
+                        </div>
+                    </div><!-- End of row -->
+                </div><!-- End of container -->
+            </section><!-- End of Contactus Section -->
+        </div>
+
+    </body>
+</html>
