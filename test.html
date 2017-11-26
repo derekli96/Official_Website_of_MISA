@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>æ¸…åå¤§å­¦ä¿¡æ¯ç®¡ç†åä¼š-THU MISA</title>
+        <title>Çå»ª´óÑ§ĞÅÏ¢¹ÜÀíĞ­»á-THU MISA</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -60,7 +60,7 @@
 				var rNum2= Math.round(10000*((seed * 9301 + 49297) % 233280)/233280.0);			
 				if(name!=""&&rNum==rNum2){
 				    $("#welcome_div").css("display","block");
-					document.getElementById("userName").innerHTML = "æ‚¨å¥½ï¼Œ"+name;
+					document.getElementById("userName").innerHTML = "ÄúºÃ£¬"+name;
 					$("#logout_div").css("display", "block");
 					$("#login_div").css("display", "none");
 				}
@@ -130,15 +130,15 @@
 							jsonp: "callback",
 							success: function(json){
 								for(var i = 0, l = json.length; i < l; i++){
-									var item = '<tr><td><a href='+json[i].file+'>'+json[i].cName+'</a></td><td>'+'</td><td>'+json[i].uploader+'</td><td>'+json[i].uploadTime+'</td><td>'+json[i].clickTime+'</td></tr>';//æ ¹æ®åå°ä¼ é€’è¿‡æ¥çš„æ•°æ®ç”Ÿæˆhtmlå†…å®¹ã€‚
-									$("table").append(item);//å†…å®¹æ·»åŠ åˆ°é¡µé¢ä¸Šã€‚
+									var item = '<tr><td><a href='+json[i].file+'>'+json[i].cName+'</a></td><td>'+'</td><td>'+json[i].uploader+'</td><td>'+json[i].uploadTime+'</td><td>'+json[i].clickTime+'</td></tr>';//¸ù¾İºóÌ¨´«µİ¹ıÀ´µÄÊı¾İÉú³ÉhtmlÄÚÈİ¡£
+									$("table").append(item);//ÄÚÈİÌí¼Óµ½Ò³ÃæÉÏ¡£
 								}
 							},
 							error: function(){
 								alert("fail");
 								for(var i = 0, l = 5; i < 5; i++){
-									var item = '<tr><td><a href='+"1"+'>'+"2"+'</a></td><td>'+'</td><td>'+"3"+'</td><td>'+"4"+'</td><td>'+"5"+'</td></tr>';//æ ¹æ®åå°ä¼ é€’è¿‡æ¥çš„æ•°æ®ç”Ÿæˆhtmlå†…å®¹ã€‚
-									$("table").append(item);//å†…å®¹æ·»åŠ åˆ°é¡µé¢ä¸Šã€‚
+									var item = '<tr><td><a href='+"1"+'>'+"2"+'</a></td><td>'+'</td><td>'+"3"+'</td><td>'+"4"+'</td><td>'+"5"+'</td></tr>';//¸ù¾İºóÌ¨´«µİ¹ıÀ´µÄÊı¾İÉú³ÉhtmlÄÚÈİ¡£
+									$("table").append(item);//ÄÚÈİÌí¼Óµ½Ò³ÃæÉÏ¡£
 								}
 							}
 						});
@@ -153,7 +153,7 @@
 						var index=myselect.selectedIndex;
 						var test = "Upload"
 						$("table tr:not(:first)").empty()
-						var item = '<tr><td><a href = '+test+'>'+"1"+'</a></td><td>'+"2"+'</td><td>'+"4"+'</td><td>'+"5"+'</td></tr>';//æ ¹æ®åå°ä¼ é€’è¿‡æ¥çš„æ•°æ®ç”Ÿæˆhtmlå†…å®¹ã€‚
+						var item = '<tr><td><a href = '+test+'>'+"1"+'</a></td><td>'+"2"+'</td><td>'+"4"+'</td><td>'+"5"+'</td></tr>';//¸ù¾İºóÌ¨´«µİ¹ıÀ´µÄÊı¾İÉú³ÉhtmlÄÚÈİ¡£
 									$("table").append(item);
 					});
 				})
@@ -190,7 +190,7 @@
 					        window.location.href = url;
 						}
 						else{
-							alert("è¯·å…ˆç™»å½•ï¼");
+							alert("ÇëÏÈµÇÂ¼£¡");
 						}
 					});
 				})
@@ -206,23 +206,23 @@
 					<div>
 						<ul class="nav navbar-nav">
 						    <li><a class="navbar-brand"><b>MISA</b></a></li>
-							<li><a id="index">é¦–é¡µ</a></li>
-							<li><a id="Introduction">å…³äºæˆ‘ä»¬</a></li>
-							<li><a id="News">æœ€æ–°æ¶ˆæ¯</a></li>
-							<li class="active"><a id="Resources">è¯¾ç¨‹èµ„æº</a></li>
-							<li><a id="Discussion">ä¸»é¢˜è®¨è®º</a></li>
-							<li><a id="Sponsor">èµåŠ©å•†</a></li>
-							<li><a id="Contact">è”ç³»æˆ‘ä»¬</a></li>
+							<li><a id="index">Ê×Ò³</a></li>
+							<li><a id="Introduction">¹ØÓÚÎÒÃÇ</a></li>
+							<li><a id="News">×îĞÂÏûÏ¢</a></li>
+							<li class="active"><a id="Resources">¿Î³Ì×ÊÔ´</a></li>
+							<li><a id="Discussion">Ö÷ÌâÌÖÂÛ</a></li>
+							<li><a id="Sponsor">ÔŞÖúÉÌ</a></li>
+							<li><a id="Contact">ÁªÏµÎÒÃÇ</a></li>
 						</ul>
 					</div>
 					<div id="login_div" class="nav navbar-nav navbar-right">
-						<li><a id="login_btn" class="navbar-link">ç™»å½•</a></li>
+						<li><a id="login_btn" class="navbar-link">µÇÂ¼</a></li>
 				    </div>
 					<div id="logout_div" class="nav navbar-nav navbar-right">
-						<li><a id="logout_btn" class="navbar-link">é€€å‡º</a></li>
+						<li><a id="logout_btn" class="navbar-link">ÍË³ö</a></li>
 				    </div>
 					<div id="welcome_div" class="nav navbar-nav navbar-right">
-						<li><a id="userName" class="navbar-link">æ¬¢è¿æ‚¨</a></li>
+						<li><a id="userName" class="navbar-link">»¶Ó­Äú</a></li>
 				    </div>
 				</div>
 			</nav>
@@ -234,53 +234,53 @@
                     <div class="row">
                         <div class="col-md-12 ">
                             <div class="main_about_area p-t-3">
-								<h2>èµ„æºåˆ—è¡¨</h2>
+								<h2>×ÊÔ´ÁĞ±í</h2>
                             </div>
                         </div><!-- End of col-md-12 -->
                     </div><!-- End of row -->
 					<div class="row">
 					<!--div class="col-md-1">
-						<button id="refresh" class="btn btn-default">åˆ·æ–°</button>
+						<button id="refresh" class="btn btn-default">Ë¢ĞÂ</button>
 					</div-->
 					<!--div class="col-md-1">
-						<button id="upload" class="btn btn-default">ä¸Šä¼ </button>
+						<button id="upload" class="btn btn-default">ÉÏ´«</button>
 					</div-->
 					<div class="col-md-8">
 						<div class="form-group">
-							<label for="cID">è¯¾ç¨‹åç§°</label>
+							<label for="cID">¿Î³ÌÃû³Æ</label>
 							<select class="form-control" id = "cID1">
-								<option value="" selected="selected">è¯·é€‰æ‹©...</option>
-									<option value="101">è®¡ç®—æœºè¯­è¨€</option>
-									<option value="102">è®¡ç®—æœºç½‘ç»œ</option>
-									<option value="103">è®¡ç®—æœºç³»ç»ŸåŸç†</option>
-									<option value="104">è¿ç­¹å­¦</option>
-									<option value="105">æ•°æ®ç»“æ„</option>
-									<option value="106">æ•°æ®åº“åŸç†åŠåº”ç”¨</option>
-									<option value="107">åŠ¨æ€ç³»ç»Ÿåˆ†æä¸è®¾è®¡</option>
-									<option value="108">æ™ºèƒ½æŠ€æœ¯</option>
-									<option value="109">ç³»ç»Ÿåˆ†æä¸è®¾è®¡</option>
-									<option value="110">é¢å‘å¯¹è±¡çš„åˆ†æè®¾è®¡æ–¹æ³•</option>
-									<option value="111">ç®¡ç†ä¿¡æ¯ç³»ç»Ÿ</option>
-									<option value="112">ç”Ÿäº§ä¸è¿ä½œç®¡ç†</option>
-									<option value="199">å…¶ä»–</option>
+								<option value="" selected="selected">ÇëÑ¡Ôñ...</option>
+									<option value="101">¼ÆËã»úÓïÑÔ</option>
+									<option value="102">¼ÆËã»úÍøÂç</option>
+									<option value="103">¼ÆËã»úÏµÍ³Ô­Àí</option>
+									<option value="104">ÔË³ïÑ§</option>
+									<option value="105">Êı¾İ½á¹¹</option>
+									<option value="106">Êı¾İ¿âÔ­Àí¼°Ó¦ÓÃ</option>
+									<option value="107">¶¯Ì¬ÏµÍ³·ÖÎöÓëÉè¼Æ</option>
+									<option value="108">ÖÇÄÜ¼¼Êõ</option>
+									<option value="109">ÏµÍ³·ÖÎöÓëÉè¼Æ</option>
+									<option value="110">ÃæÏò¶ÔÏóµÄ·ÖÎöÉè¼Æ·½·¨</option>
+									<option value="111">¹ÜÀíĞÅÏ¢ÏµÍ³</option>
+									<option value="112">Éú²úÓëÔË×÷¹ÜÀí</option>
+									<option value="199">ÆäËû</option>
 							</select>
 						</div>
 					</div>
 					<div class="col-md-2">
-						<button class="btn btn-default" id = "search">æœç´¢èµ„æ–™</button>
+						<button class="btn btn-default" id = "search">ËÑË÷×ÊÁÏ</button>
 					</div>
 					<div class="col-md-2">
-						<button class="btn btn-default" id = "upload">ä¸Šä¼ èµ„æ–™</button>
+						<button class="btn btn-default" id = "upload">ÉÏ´«×ÊÁÏ</button>
 					</div>
 					</div>
 					<table id="table" class="table table-hover m-t-1" data-classes="table table-hover"  
 						   data-striped="true"  data-sort-name="stargazers_count"  
 						   data-sort-order="desc" >   
 						<tr id="table-head" style="text-align:center;">  
-							<th data-field="title">èµ„æ–™æ ‡é¢˜</th>  
-							<th data-field="uploader">ä¸Šä¼ è€…</th>  
-							<th data-field="time">ä¸Šä¼ æ—¶é—´</th>			
-							<th data-field="time">ä¸‹è½½æ¬¡æ•°</th>								
+							<th data-field="title">×ÊÁÏ±êÌâ</th>  
+							<th data-field="uploader">ÉÏ´«Õß</th>  
+							<th data-field="time">ÉÏ´«Ê±¼ä</th>			
+							<th data-field="time">ÏÂÔØ´ÎÊı</th>								
 						</tr> 
 					</table> 
                 </div><!-- End of Container-fluid -->
@@ -290,11 +290,11 @@
 		    <div class="container">
 				<div class="row">
 					<div class="footer">
-						<h6>Copyright &copy;2017 æ¸…åå¤§å­¦ä¿¡æ¯ç®¡ç†åä¼š</h6>
+						<h6>Copyright &copy;2017 Çå»ª´óÑ§ĞÅÏ¢¹ÜÀíĞ­»á</h6>
 					</div>
 				</div>
 			</div>
-		</footer><!--é¡µè„šç»“æŸ-->
+		</footer><!--Ò³½Å½áÊø-->
 			
 	</body>
 </html>           
