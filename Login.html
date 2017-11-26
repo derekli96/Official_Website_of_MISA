@@ -82,7 +82,7 @@
 								    alert("登录成功！");
 								    var seed = Math.round(Math.random()*1000);  
 								    var rNum= Math.round(10000*((seed * 9301 + 49297) % 233280)/233280.0);   
-								    var url=ref+"?name="+$("#login_name").val()+"&r="+rNum+"&s="+seed;
+								    var url="../"+ref+"?name="+$("#login_name").val()+"&r="+rNum+"&s="+seed;
 								    window.location.href = url;
 								}
 							},
