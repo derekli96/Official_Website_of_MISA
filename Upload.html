@@ -114,6 +114,9 @@
 		<script>
 		$(document).ready(function(){
 		  $("#upload_btn").click(function(){
+			var name = $.query.get("name");
+			var rNum = $.query.get("r");
+			var seed = $.query.get("s");
 			var formData = new FormData();
 			var myselect=document.getElementById("cID1");
 			var index=myselect.selectedIndex;
@@ -133,7 +136,10 @@
 			  {// 4 = "loaded"
 			  if (xmlhttp.status==200)
 				{// 200 = "OK"
-					alert("上传成功");}
+					alert("上传成功");
+				    var url="../Upload?name="+name+"&r="+rNum+"&s="+seed;
+					window.location.href = url;	
+				}
 			  else
 				{ alert("上传失败，请重新上传"); }
 			  }
