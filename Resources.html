@@ -132,7 +132,7 @@
 								var length=result.length;
 								alert(length);
 								for(var i = 0, l =length; i < l; i++){
-									var item = '<tr><td><a href='+result[i].fields.fileAddress+"/a>"+result[i].fields.cName+'</td><td>'+result[i].fields.uploadername+"</td><td>"+result[i].fields.uploadTime+"</td><td>"+result[i].fields.clickTime+"</td></tr>";//根据后台传递过来的数据生成html内容。
+									var item = '<tr><td><a href='+result[i].fields.fileAddress+">"+result[i].fields.cName+'</a></td><td>'+result[i].fields.uploadername+"</td><td>"+result[i].fields.uploadTime+"</td><td>"+result[i].fields.clickTime+"</td></tr>";//根据后台传递过来的数据生成html内容。
 									$("table").append(item);//内容添加到页面上。
 								}
 							},
