@@ -116,13 +116,16 @@
 		<script type="text/javascript">
 				$(document).ready(function(){
 					$("#search").click(function(){
-						var  myselect=document.getElementById("cID1");
+						var myselect=document.getElementById("cID1");
 						var index=myselect.selectedIndex;
+						var JSONObject= {
+							"cID":myselect.options[index].value,
+						};
 						$("table tr:not(:first)").empty();
 						$.ajax({
 							type: "POST",
 							url:"http://123.56.26.95/Introduction/",
-							data: myselect.options[index].value,
+							data: JSONObject,
 							dataType: "json",
 							jsonp: "callback",
 							success: function(json){
