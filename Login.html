@@ -73,7 +73,7 @@
 							type: "POST",
 							url: "http://123.56.26.95/log/",
 							data: JSONObject,
-							dataType:"jsonp",
+							dataType:"text",
 							success: function (result) {
 								if (result == "0") {
 									alert("用户名或密码错误！");
@@ -120,9 +120,8 @@
 							type: "POST",
 							url: "http://123.56.26.95/register/",
 							data: JSONObject,
-							dataType: "json",
-							success: function (data) {
-								var result = data.ret;
+							dataType:"text",
+							success: function (result) {
 								if(result=="0"){
 									alert("注册失败：请完整填写表格！");
 								}
