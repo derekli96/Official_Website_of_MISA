@@ -73,9 +73,8 @@
 							type: "POST",
 							url: "http://123.56.26.95/log/",
 							data: JSONObject,
-							dataType: "json",
-							success: function (data) {
-								var result = data.ret;
+							dataType:"jsonp",
+							success: function (result) {
 								if (result == "0") {
 									alert("用户名或密码错误！");
 								}
@@ -87,7 +86,9 @@
 								    window.location.href = url;
 								}
 							},
-							error: function (){
+							error: function (result){
+								var str=result.responseText;
+								alert(str);
 								alert("向服务器请求失败，登录失败！");
 							}
 						});
